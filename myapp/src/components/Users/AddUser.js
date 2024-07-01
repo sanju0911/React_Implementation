@@ -7,8 +7,7 @@ import "./AddUser.css";
 const AddUser = (props) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
-
-  const [error, seterror] = useState("");
+  const [error, setError] = useState(null);
 
   const nameChangeHandler = (event) => {
     setEnteredName(event.target.value);
@@ -20,15 +19,15 @@ const AddUser = (props) => {
 
   const addUserHandler = (event) => {
     event.preventDefault();
-    if (enteredName.length === 0 || enteredAge < 1) {
-      seterror({
+    if (enteredName.trim().length === 0 || +enteredAge < 1) {
+      setError({
         title: "Invalid Input",
         message: "Please enter a valid name and age (non-empty values).",
       });
       return;
     }
-    if (enteredAge < 1) {
-      seterror({
+    if (+enteredAge < 1) {
+      setError({
         title: "Invalid Age",
         message: "Please enter a valid age (> 0).",
       });
@@ -40,7 +39,7 @@ const AddUser = (props) => {
   };
 
   const errorHandler = () => {
-    seterror(null);
+    setError(null);
   };
 
   return (
