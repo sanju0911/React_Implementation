@@ -5,8 +5,12 @@ import UserList from "./components/Users/UserList";
 const App = () => {
   const [usersList, setUsersList] = useState([]);
 
-  const addUserHandler = (user) => {
-    setUsersList((prevUsersList) => [...prevUsersList, user]);
+  const addUserHandler = (uName, uAge) => {
+    setUsersList((prevUsersList) => [
+      ...prevUsersList,
+      { name: uName, age: uAge },
+    ]);
+    console.log(usersList);
   };
 
   return (
