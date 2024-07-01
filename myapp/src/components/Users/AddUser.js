@@ -8,8 +8,8 @@ const AddUser = () => {
   };
 
   return (
-    <Card>
-      <form className="input" onSubmit={addUserHandler}>
+    <Card className="input">
+      <form onSubmit={addUserHandler}>
         <label htmlFor="username">Username</label>
         <input id="username" type="text" />
         <label htmlFor="age">Age</label>
